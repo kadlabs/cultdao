@@ -11,7 +11,7 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 
-contract Dcult is Initializable, UUPSUpgradeable, ERC20Upgradeable, ERC20PermitUpgradeable, ERC20VotesUpgradeable, OwnableUpgradeable, PausableUpgradeable {
+contract Dgarage is Initializable, UUPSUpgradeable, ERC20Upgradeable, ERC20PermitUpgradeable, ERC20VotesUpgradeable, OwnableUpgradeable, PausableUpgradeable {
     using SafeMathUpgradeable for uint256;
     using SafeERC20Upgradeable for IERC20Upgradeable;
     IERC20Upgradeable public cult;
@@ -89,9 +89,9 @@ contract Dcult is Initializable, UUPSUpgradeable, ERC20Upgradeable, ERC20PermitU
         ) public initializer {
         require(_adminAddress != address(0), "initialize: Zero address");
         OwnableUpgradeable.__Ownable_init();
-        __ERC20_init_unchained("dCULT", "dCULT");
+        __ERC20_init_unchained("dGARAGE", "dGARAGE");
         __Pausable_init_unchained();
-        ERC20PermitUpgradeable.__ERC20Permit_init("dCULT");
+        ERC20PermitUpgradeable.__ERC20Permit_init("dGARAGE");
         ERC20VotesUpgradeable.__ERC20Votes_init_unchained();
         CULT = _cult;
         adminAddress = _adminAddress;
@@ -289,6 +289,7 @@ contract Dcult is Initializable, UUPSUpgradeable, ERC20Upgradeable, ERC20PermitU
                 return true;
             }
         }
+        return false;
     }
 
     // Deposit CULT tokens to MasterChef.
